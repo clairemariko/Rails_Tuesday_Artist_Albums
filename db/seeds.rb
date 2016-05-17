@@ -14,6 +14,7 @@ Artist.delete_all()
 Album.delete_all()
 Venue.delete_all()
 Gig.delete_all()
+Track.delete_all()
 
 artist_one=Artist.create!( {name: "Oasis"} );
 artist_two =Artist.create!( {name: "Justin Bieber"} );
@@ -35,4 +36,10 @@ Gig.create({
 
   #for a date in the future datetime parse, DateTime.new(2016, 11, 01) or DateTime.now
   date: DateTime.new(2016, 11, 1)
+  })
+
+Track.create({
+  album_id: album_one.id,
+  name: "Shakermaker",
+  number: 1 
   })

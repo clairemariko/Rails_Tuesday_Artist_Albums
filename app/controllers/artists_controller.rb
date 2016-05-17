@@ -11,11 +11,16 @@ class ArtistsController < ApplicationController
 
 #rather than animals where it was bypassing html this is purely going into json. find_by is an out of the box rails thing. 
 #what if we not only want to show artist but their albums too so instead of json: artist... artist.as_json({include: :albums})
-#you ca also use methods: as within in Artist we have the method albums
+#you ca also use methods: as within in Artist we have the method albums due to it relation in artist. 
   def show
     artist = Artist.find_by(id: params[:id])
-    render(json: artist.as_json({include: :albums}) )
+    render(json: artist.as_json({include: [:albums, :tracks]}) )
   end
+
+  #to include multiple
+  # render(json: artist.as_json({include: [:albums, :gigs]}) )
+
+#wwhat if you just want to see the gigs of a particular artist. Rails can create this route through nested resources. 
 
 
 

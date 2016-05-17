@@ -8,7 +8,16 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  resources :artists
+  ## pulling out routes we need
+  resources :gigs
+
+  resources :albums do
+    resources :tracks
+  end
+#searchin by artist will bring you back gigs inforamtion
+  resources :artists do 
+    resources :gigs
+  end
   # resources :albums
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
