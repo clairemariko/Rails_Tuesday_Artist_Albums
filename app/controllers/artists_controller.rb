@@ -14,9 +14,10 @@ class ArtistsController < ApplicationController
 #you ca also use methods: as within in Artist we have the method albums due to it relation in artist. 
   def show
     artist = Artist.find_by(id: params[:id])
-    render(json: artist.as_json( { :include => [
-      { :albums => {:include => :tracks},
-      {:gigs => {:include => :venue} }
+    render(json: artist.as_json( { 
+      :include => [
+      { :albums => {:include => :tracks} },
+      { :gigs => {:include => :venue} }
       ]
      } ) )
   end
