@@ -20,9 +20,9 @@ artist_one=Artist.create!( {name: "Oasis"} );
 artist_two =Artist.create!( {name: "Justin Bieber"} );
 
 
-Album.create!( {name: "Be Here Now", artist_id: artist_one.id});
+album_one = Album.create!( {name: "Be Here Now", artist_id: artist_one.id});
 #artist_one.albums.create({name: "Be Here Now"}), same as doing the above just different syntax. by setting artist_id to the variable artist one we are making sure it is linked up
-Album.create!( {name: "Definitely Maybe", artist_id: artist_one.id});
+album_two =Album.create!( {name: "Definitely Maybe", artist_id: artist_one.id});
 
 
 venue_one = Venue.create!({name:'Corn Exchange', location: 'Edinburgh'});
@@ -37,9 +37,15 @@ Gig.create({
   #for a date in the future datetime parse, DateTime.new(2016, 11, 01) or DateTime.now
   date: DateTime.new(2016, 11, 1)
   })
-
-Track.create({
+#you can add tracks individually
+track2 = Track.create({
   album_id: album_one.id,
-  name: "Shakermaker",
+  title: "lalala",
+  number: 2
+  })
+
+track1 = Track.create({
+  album_id: album_one.id,
+  title: "Shakermaker",
   number: 1 
   })
